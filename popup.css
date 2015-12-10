@@ -8,6 +8,10 @@
   max-width: 400px;
 }
 
+#highlight {
+  font-style: italic;
+}
+
 #comment {
   resize: none;
   min-width: 300px;

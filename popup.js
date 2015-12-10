@@ -22,6 +22,16 @@ function renderTitle(title) {
   document.getElementById('title').textContent = title;
 }
 
+function renderHighlight(highlight) {
+  if (highlight == null || highlight === "") {
+    highlight = "No quote. Open Articl with text highlighted to quote it.";
+  } else {
+    highlight = "\"" + highlight + "\"";
+  }
+
+  document.getElementById('highlight').textContent = highlight;
+}
+
 document.addEventListener('DOMContentLoaded', 
   function() {
     getCurrentTab(
@@ -30,5 +40,11 @@ document.addEventListener('DOMContentLoaded',
         renderCurrentUrl(tab.url);
       }
     );
+
+    chrome.tabs.executeScript( {
+      code: "window.getSelection().toString();"
+    }, function(selection) {
+      renderHighlight(selection[0]);
+    });
   }
 );
