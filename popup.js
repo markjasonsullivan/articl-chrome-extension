@@ -1,4 +1,4 @@
-function getCurrentTabUrl(callback) {
+function getCurrentTab(callback) {
   var queryInfo = {
     active: true,
     currentWindow: true
@@ -6,21 +6,28 @@ function getCurrentTabUrl(callback) {
 
   chrome.tabs.query(queryInfo, function(tabs) {
     var tab = tabs[0];
-    var url = tab.url;
-    console.assert(typeof url == 'string', 'tab.url should be a string');
-    callback(url);
+    callback(tab);
   });
+}
+
+function init() {
+  alert("test");
 }
 
 function renderCurrentUrl(currentUrl) {
   document.getElementById('link').textContent = currentUrl;
 }
 
+function renderTitle(title) {
+  document.getElementById('title').textContent = title;
+}
+
 document.addEventListener('DOMContentLoaded', 
   function() {
-    getCurrentTabUrl(
-      function(url) {
-        renderCurrentUrl(url);
+    getCurrentTab(
+      function(tab) {
+        renderTitle(tab.title);
+        renderCurrentUrl(tab.url);
       }
     );
   }
