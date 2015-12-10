@@ -10,10 +10,6 @@ function getCurrentTab(callback) {
   });
 }
 
-function init() {
-  alert("test");
-}
-
 function renderCurrentUrl(currentUrl) {
   document.getElementById('link').textContent = currentUrl;
 }
