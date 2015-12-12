@@ -1,6 +1,7 @@
 #container {
   min-width: 400px;
   max-width: 400px;
+  background-color: #F7EAC8;
 }
 
 #title {
@@ -28,4 +29,10 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 300px;
+}
+
+.styleTextBox {
+  background-color: #47E4C2;
+  box-shadow: inset 1px 1px 1px 1px #ccc;
+  border-style: none;
 }
