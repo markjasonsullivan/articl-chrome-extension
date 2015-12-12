@@ -2,6 +2,7 @@
   min-width: 400px;
   max-width: 400px;
   background-color: #F7EAC8;
+  font-family: 'MyFont', serif;
 }
 
 #title {
@@ -32,7 +33,12 @@
 }
 
 .styleTextBox {
-  background-color: #47E4C2;
-  box-shadow: inset 1px 1px 1px 1px #ccc;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: inset 1px 2px 3px 1px #ccc;
   border-style: none;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('Font/Lantinghei-SC-Extralight-stub.ttf') format('truetype');
 }
