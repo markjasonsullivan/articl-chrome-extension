@@ -1,6 +1,6 @@
 #container {
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 300px;
+  max-width: 300px;
   background-color: #F7EAC8;
   font-family: 'MyFont', serif;
 }
@@ -10,35 +10,57 @@
   max-width: 400px;
 }
 
+#highlight-image {
+  float: left;
+}
+
 #highlight {
   font-style: italic;
 }
 
-#comment {
-  resize: none;
-  min-width: 300px;
-  max-width: 300px;
+#recipient {
+  min-width: 201px;
+  max-width: 201px;
+  min-height: 28px;
+  max-height: 28px;
+  font-family: 'Lustria', serif;
+  font-size: 12px;
+  float: left;
 }
 
-#recipient {
-  min-width: 300px;
-  max-width: 300px;
+#comment {
+  resize: none;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 18px;
+  max-height: 18px;
+  font-family: 'Lustria', serif;
+  font-size: 10px;
+}
+
+#send {
+
 }
 
 #link {
-  font-size: 12px;
+  font-size: 8px;
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 300px;
 }
 
 .styleTextBox {
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: inset 1px 2px 3px 1px #ccc;
+  background-color: #FFF8E1;
+  box-shadow: inset -1px 2px 3px 1px #ccc;
   border-style: none;
+  text-indent: 5px;
 }
 
 @font-face {
     font-family: 'MyFont';
     src: url('Font/Lantinghei-SC-Extralight-stub.ttf') format('truetype');
+}
+
+input {
+ outline:none;
 }

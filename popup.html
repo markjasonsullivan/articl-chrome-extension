@@ -4,18 +4,17 @@
     <link rel="stylesheet" type="text/css" href="popup.css">
     <script src="jquery-1.11.3.min.js"></script>
     <script src="popup.js"></script>
-
+    <link href='https://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
   </head>
   <body id="container">
     <h2 id="title"></h2>
-    <img src="Images/highlighter_enabled.png" width="30"/>
+    <img id="highlight-image" src="Images/highlighter_enabled.png" width="25"/>
     <p id="highlight"></p>
-    <textarea id="comment" class="styleTextBox" placeholder="Comments" rows="4" cols="50"></textarea>
     <br>
     <input id="recipient" class="styleTextBox" placeholder="Recommend" type="email" name="recipient">
-    <br><br>
+    <!-- <textarea id="comment" class="styleTextBox" placeholder="Comments" rows="2" cols="50"></textarea> -->
     <!-- <button id="btn-send">Send</button> -->
-    <img src="Images/icon_send.png" height="30"/>
+    <img id="send" src="Images/icon_send.png" height="30"/>
     <p id="link"></p>
   </body>
 </html>
