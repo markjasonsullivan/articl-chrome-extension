@@ -20,7 +20,7 @@ function renderTitle(title) {
 
 function renderHighlight(highlight) {
   if (highlight == null || highlight === "") {
-    highlight = "No quote. Open Articl with text highlighted to quote it.";
+    highlight = "No highlight, No biggie.";
   } else {
     highlight = "\"" + highlight + "\"";
   }
@@ -28,7 +28,7 @@ function renderHighlight(highlight) {
   document.getElementById('highlight').textContent = highlight;
 }
 
-document.addEventListener('DOMContentLoaded', 
+document.addEventListener('DOMContentLoaded',
   function() {
     getCurrentTab(
       function(tab) {

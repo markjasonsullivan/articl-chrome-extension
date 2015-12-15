@@ -1,21 +1,26 @@
 #container {
-  min-width: 300px;
-  max-width: 300px;
+  width: 300px;
   background-color: #F7EAC8;
   font-family: 'MyFont', serif;
+  /*display: flex;
+  flex-wrap: wrap;*/
 }
 
 #title {
   font-size: 20px;
   max-width: 400px;
+  /*flex 1 1 auto;
+  flex-basis: 100%;*/
 }
 
 #highlight-image {
   float: left;
+  /*flex-basis: 20%;*/
 }
 
 #highlight {
   font-style: italic;
+  /*flex-basis: 80%;*/
 }
 
 #recipient {
@@ -26,6 +31,7 @@
   font-family: 'Lustria', serif;
   font-size: 12px;
   float: left;
+  /*flex-basis: 60%;*/
 }
 
 #comment {
@@ -39,7 +45,7 @@
 }
 
 #send {
-
+  /*flex-basis: 40%;*/
 }
 
 #link {
@@ -47,6 +53,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 300px;
+  /*flex-basis: 100%;*/
 }
 
 .styleTextBox {
@@ -64,3 +71,6 @@
 input {
  outline:none;
 }
+
+.grow { transition: all .1s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
