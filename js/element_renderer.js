@@ -1,14 +1,12 @@
 (function() {
-  var linkTextView = document.getElementById('link');
-  var titleTextView = document.getElementById('title');
-  var highlightTextView = document.getElementById('highlight');
-
-  // Revealing Module Pattern.
   var elementRenderer = window.elementRenderer || {}
-
   elementRenderer.renderCurrentUrl = renderCurrentUrl;
   elementRenderer.renderTitle = renderTitle;
   elementRenderer.renderHighlight = renderHighlight;
+
+  var linkTextView = document.getElementById('link');
+  var titleTextView = document.getElementById('title');
+  var highlightTextView = document.getElementById('highlight');
 
   window.elementRenderer = elementRenderer;
 
