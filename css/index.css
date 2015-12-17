@@ -65,7 +65,7 @@
 
 @font-face {
     font-family: 'MyFont';
-    src: url('Font/Lantinghei-SC-Extralight-stub.ttf') format('truetype');
+    src: url('font/Lantinghei-SC-Extralight-stub.ttf') format('truetype');
 }
 
 input {
