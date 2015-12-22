@@ -6,12 +6,10 @@
         code: "window.getSelection().toString();"
       };
 
+      var onTabsReturned = callbackWithFirstElement(onTabReturned);
+      var onSelectionsReturned = callbackWithFirstElement(elementRenderer.renderHighlight);
       getCurrentTab(onTabsReturned);
-      chrome.tabs.executeScript(injectionScript, grabFirstSelection);
-
-      function grabFirstSelection(selections) {
-        elementRenderer.renderHighlight(selections[0]);
-      }
+      chrome.tabs.executeScript(injectionScript, onSelectionsReturned);
   }
 
   function getCurrentTab(queryCallback) {
@@ -23,9 +21,15 @@
     chrome.tabs.query(queryInfo, queryCallback);
   }
 
-  function onTabsReturned(tabs) {
-    var tab = tabs[0];
+  function callbackWithFirstElement(callback) {
+    return function onArrayReturned(arr) {
+      var firstElement = arr[0];
+      callback(firstElement);
+    }
+  }
+
+  function onTabReturned(tab) {
     elementRenderer.renderTitle(tab.title);
-    elementRenderer.renderCurrentUrl(tab.url);
+    elementRenderer.renderUrl(tab.url);
   }
 })(window.elementRenderer);

@@ -1,30 +1,26 @@
 (function() {
-  var elementRenderer = window.elementRenderer || {}
-  elementRenderer.renderCurrentUrl = renderCurrentUrl;
-  elementRenderer.renderTitle = renderTitle;
-  elementRenderer.renderHighlight = renderHighlight;
-
+  var elementRenderer = window.elementRenderer || {};
   var linkTextView = document.getElementById('link');
   var titleTextView = document.getElementById('title');
   var highlightTextView = document.getElementById('highlight');
+  
+  elementRenderer.renderUrl = renderText.bind(elementRenderer, linkTextView);
+  elementRenderer.renderTitle = renderText.bind(elementRenderer, titleTextView);
+  elementRenderer.renderHighlight = renderHighlight;
 
   window.elementRenderer = elementRenderer;
 
-  function renderCurrentUrl(currentUrl) {
-    linkTextView.textContent = currentUrl;
-  }
-
-  function renderTitle(title) {
-    titleTextView.textContent = title;
-  }
-
   function renderHighlight(highlight) {
-    if (highlight == null || highlight === "") {
-      highlight = "No highlight, No biggie.";
-    } else {
+    if (highlight) {
       highlight = "\"" + highlight + "\"";
+    } else {
+      highlight = "No highlight, No biggie.";
     }
 
-    highlightTextView.textContent = highlight;
+    renderText(highlightTextView, highlight);
+  }
+
+  function renderText(element, text) {
+    element.textContent = text;
   }
 })();
