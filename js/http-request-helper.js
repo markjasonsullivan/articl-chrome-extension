@@ -1,9 +1,9 @@
 (function() {
-  var http_request_helper = window.http_request_helper || {};
+  var httpRequestHelper = window.httpRequestHelper || {};
   
-  http_request_helper.getRequest = getRequest;
+  httpRequestHelper.getRequest = getRequest;
 
-  window.http_request_helper = http_request_helper;
+  window.httpRequestHelper = httpRequestHelper;
 
   function getRequest(url, callback){
       var xmlHttp = new XMLHttpRequest();
@@ -15,7 +15,7 @@
       };
 
       xmlHttp.open("GET", url, true);
-      xmlHttp.setRequestHeader("Accept", "application/json");      
+      xmlHttp.setRequestHeader("Content-Type", "application/json");      
       xmlHttp.send(null);
   }
 })();

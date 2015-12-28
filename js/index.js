@@ -1,31 +1,34 @@
-(function(urlHelper, elementRenderer, localStorageHelper, http_request_helper, utils) {
+(function(urlHelper, elementRenderer, localStorageHelper, httpRequestHelper, utils) {
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
   function onDOMContentLoaded() {
-    console.log("DOM Content has been loaded!");
-    console.log("urlHelper.getBaseUrl() returns " + urlHelper.getBaseUrl());
+    if (localStorageHelper.getUserId()) {
+      if (!localStorageHelper.getUserCache()) {
+        httpRequestHelper.getRequest(urlHelper.getUserUrl(localStorageHelper.getUserId()), onGetUserRequestFinished);
+      }
 
-    if (localStorageHelper.doesExtensionHaveAssociatedUser()) {
-      var injectionScript = {
-        code: "window.getSelection().toString();"
-      };
+      populateViewWithDataFromCurrentTab();
+    } else {
+      openNewTabWithArticlsNewUserPage();
+    }
 
+    function populateViewWithDataFromCurrentTab() {
+      var injectionScript = { code: "window.getSelection().toString();" };
       var onTabsReturned = callbackWithFirstElement(onTabReturned);
       var onSelectionsReturned = callbackWithFirstElement(elementRenderer.renderHighlight);
       getCurrentTab(onTabsReturned);
       chrome.tabs.executeScript(injectionScript, onSelectionsReturned);
+    }
 
-      if (localStorageHelper.getUserCache()) {
-        console.log("User was cached.");
-      } else {
-        http_request_helper.getRequest(urlHelper.getBaseUrl() + "users/" + localStorageHelper.getUserId(), function(data) {
-          localStorageHelper.setUserCache(data);
-        });
-      }
-    } else {
-      var userId = utils.generateGuid();
-      localStorageHelper.setUserId(userId);
-      chrome.tabs.create({ url: urlHelper.getUserUrl(userId) });
+    function onGetUserRequestFinished(data) {
+      localStorageHelper.setUserCache(data);
+    }
+
+    function openNewTabWithArticlsNewUserPage() {
+      var newUserId = utils.generateGuid();
+      localStorageHelper.setUserId(newUserId);
+      newTabUrl = urlHelper.getUserUrl(userId);
+      chrome.tabs.create({ url: newTabUrl });
     }
   }
 
@@ -49,4 +52,4 @@
     elementRenderer.renderTitle(tab.title);
     elementRenderer.renderUrl(tab.url);
   }
-})(window.urlHelper, window.elementRenderer, window.localStorageHelper, window.http_request_helper, window.utils);
+})(window.urlHelper, window.elementRenderer, window.localStorageHelper, window.httpRequestHelper, window.utils);
