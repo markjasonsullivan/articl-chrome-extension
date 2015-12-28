@@ -17,7 +17,7 @@
     function populateViewWithDataFromCurrentTab() {
       var injectionScript = { code: "window.getSelection().toString();" };
       var onTabsReturned = callbackWithFirstElement(onTabReturned);
-      var onSelectionsReturned = callbackWithFirstElement(elementRenderer.renderHighlight);
+      var onSelectionsReturned = callbackWithFirstElement(elementHelper.renderHighlight);
       getCurrentTab(onTabsReturned);
       chrome.tabs.executeScript(injectionScript, onSelectionsReturned);
 
@@ -31,8 +31,8 @@
       }
 
       function onTabReturned(tab) {
-        elementRenderer.renderTitle(tab.title);
-        elementRenderer.renderUrl(tab.url);
+        elementHelper.renderTitle(tab.title);
+        elementHelper.renderUrl(tab.url);
       }      
     }
 
