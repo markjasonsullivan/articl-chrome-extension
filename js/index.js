@@ -1,7 +1,11 @@
-(function(elementRenderer) {
+(function(elementRenderer, localStorageHelper, http_request_helper, utils) {
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+  document.getElementById("send").addEventListener("click", function() {
+    
+  });
 
   function onDOMContentLoaded() {
+    if (localStorageHelper.doesExtensionHaveAssociatedUser()) {
       var injectionScript = {
         code: "window.getSelection().toString();"
       };
@@ -10,6 +14,20 @@
       var onSelectionsReturned = callbackWithFirstElement(elementRenderer.renderHighlight);
       getCurrentTab(onTabsReturned);
       chrome.tabs.executeScript(injectionScript, onSelectionsReturned);
+
+      if (localStorageHelper.getUserCache()) {
+        console.log("User was cached.");
+      } else {
+        http_request_helper.getRequest("http://articl.io/users/" + localStorageHelper.getUserId(), function(data) {
+          localStorageHelper.cacheUser(data);
+        });
+      }
+    } else {
+      var userId = utils.generateGuid();
+      localStorageHelper.setUserId(userId);
+      var newURL = "http://articl.io/users/" + userId;
+      chrome.tabs.create({ url: newURL });
+    }
   }
 
   function getCurrentTab(queryCallback) {
@@ -32,4 +50,4 @@
     elementRenderer.renderTitle(tab.title);
     elementRenderer.renderUrl(tab.url);
   }
-})(window.elementRenderer);
+})(window.elementRenderer, window.localStorageHelper, window.http_request_helper, window.utils);
