@@ -1,10 +1,10 @@
-(function(elementRenderer, localStorageHelper, http_request_helper, utils) {
+(function(urlHelper, elementRenderer, localStorageHelper, http_request_helper, utils) {
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
-  document.getElementById("send").addEventListener("click", function() {
-    
-  });
 
   function onDOMContentLoaded() {
+    console.log("DOM Content has been loaded!");
+    console.log("urlHelper.getBaseUrl() returns " + urlHelper.getBaseUrl());
+
     if (localStorageHelper.doesExtensionHaveAssociatedUser()) {
       var injectionScript = {
         code: "window.getSelection().toString();"
@@ -18,15 +18,14 @@
       if (localStorageHelper.getUserCache()) {
         console.log("User was cached.");
       } else {
-        http_request_helper.getRequest("http://articl.io/users/" + localStorageHelper.getUserId(), function(data) {
-          localStorageHelper.cacheUser(data);
+        http_request_helper.getRequest(urlHelper.getBaseUrl() + "users/" + localStorageHelper.getUserId(), function(data) {
+          localStorageHelper.setUserCache(data);
         });
       }
     } else {
       var userId = utils.generateGuid();
       localStorageHelper.setUserId(userId);
-      var newURL = "http://articl.io/users/" + userId;
-      chrome.tabs.create({ url: newURL });
+      chrome.tabs.create({ url: urlHelper.getUserUrl(userId) });
     }
   }
 
@@ -50,4 +49,4 @@
     elementRenderer.renderTitle(tab.title);
     elementRenderer.renderUrl(tab.url);
   }
-})(window.elementRenderer, window.localStorageHelper, window.http_request_helper, window.utils);
+})(window.urlHelper, window.elementRenderer, window.localStorageHelper, window.http_request_helper, window.utils);

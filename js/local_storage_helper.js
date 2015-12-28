@@ -4,7 +4,7 @@
   localStorageHelper.doesExtensionHaveAssociatedUser = doesExtensionHaveAssociatedUser;
   localStorageHelper.getUserId = getUserId;
   localStorageHelper.setUserId = setUserId;
-  localStorageHelper.cacheUser = cacheUser;
+  localStorageHelper.setUserCache = setUserCache;
   localStorageHelper.getUserCache = getUserCache;
 
   window.localStorageHelper = localStorageHelper;
@@ -21,7 +21,7 @@
     localStorage.userId = userId;
   }
 
-  function cacheUser(userJsonData) {
+  function setUserCache(userJsonData) {
     localStorage.userCache = userJsonData;
   }
 
