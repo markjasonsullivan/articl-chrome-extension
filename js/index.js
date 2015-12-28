@@ -1,15 +1,17 @@
-(function(urlHelper, elementRenderer, localStorageHelper, httpRequestHelper, utils) {
+(function(urlHelper, elementHelper, localStorageHelper, httpRequestHelper, utils) {
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
   function onDOMContentLoaded() {
-    if (localStorageHelper.getUserId()) {
-      if (!localStorageHelper.getUserCache()) {
-        httpRequestHelper.getRequest(urlHelper.getUserUrl(localStorageHelper.getUserId()), onGetUserRequestFinished);
-      }
-
+    if (localStorageHelper.getArticlUserId()) {
+      addEventListenersToButtons();
       populateViewWithDataFromCurrentTab();
     } else {
       openNewTabWithArticlsNewUserPage();
+    }
+
+    function addEventListenersToButtons() {
+      sendButton = document.getElementById("send");
+      sendButton.addEventListener("click", onSendClick);
     }
 
     function populateViewWithDataFromCurrentTab() {
@@ -18,27 +20,40 @@
       var onSelectionsReturned = callbackWithFirstElement(elementRenderer.renderHighlight);
       getCurrentTab(onTabsReturned);
       chrome.tabs.executeScript(injectionScript, onSelectionsReturned);
-    }
 
-    function onGetUserRequestFinished(data) {
-      localStorageHelper.setUserCache(data);
+      function getCurrentTab(queryCallback) {
+        var queryInfo = {
+          active: true,
+          currentWindow: true
+        };
+
+        chrome.tabs.query(queryInfo, queryCallback);
+      }
+
+      function onTabReturned(tab) {
+        elementRenderer.renderTitle(tab.title);
+        elementRenderer.renderUrl(tab.url);
+      }      
     }
 
     function openNewTabWithArticlsNewUserPage() {
-      var newUserId = utils.generateGuid();
-      localStorageHelper.setUserId(newUserId);
-      newTabUrl = urlHelper.getUserUrl(userId);
+      var newArticlUserId = utils.generateGuid();
+      localStorageHelper.setArticlUserId(newArticlUserId);
+      var newTabUrl = urlHelper.getUserUrl(newArticlUserId);
       chrome.tabs.create({ url: newTabUrl });
     }
-  }
 
-  function getCurrentTab(queryCallback) {
-    var queryInfo = {
-      active: true,
-      currentWindow: true
-    };
-
-    chrome.tabs.query(queryInfo, queryCallback);
+    function onSendClick() {
+      httpRequestHelper.createNewShareRequest(
+        urlHelper.getCreateShareUrl(),
+        localStorageHelper.getArticlUserId(),
+        "tambykojak@gmail.com",
+        "this is the email body.",
+        function() {
+          console.log("zomg it worked.");
+        }
+        )
+    }
   }
 
   function callbackWithFirstElement(callback) {
@@ -47,9 +62,4 @@
       callback(firstElement);
     }
   }
-
-  function onTabReturned(tab) {
-    elementRenderer.renderTitle(tab.title);
-    elementRenderer.renderUrl(tab.url);
-  }
-})(window.urlHelper, window.elementRenderer, window.localStorageHelper, window.httpRequestHelper, window.utils);
+})(window.urlHelper, window.elementHelper, window.localStorageHelper, window.httpRequestHelper, window.utils);

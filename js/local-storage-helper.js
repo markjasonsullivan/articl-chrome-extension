@@ -1,19 +1,19 @@
 (function() {
   var localStorageHelper = window.localStorageHelper || {};
   
-  localStorageHelper.getUserId = getUserId;
-  localStorageHelper.setUserId = setUserId;
+  localStorageHelper.getArticlUserId = getArticlUserId;
+  localStorageHelper.setArticlUserId = setArticlUserId;
   localStorageHelper.setUserCache = setUserCache;
   localStorageHelper.getUserCache = getUserCache;
 
   window.localStorageHelper = localStorageHelper;
 
-  function getUserId() {
-    return localStorage.userId;
+  function getArticlUserId() {
+    return localStorage.articlUserId;
   }
 
-  function setUserId(userId) {
-    localStorage.userId = userId;
+  function setArticlUserId(articlUserId) {
+    localStorage.articlUserId = articlUserId;
   }
 
   function setUserCache(userJsonData) {

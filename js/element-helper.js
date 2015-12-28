@@ -1,14 +1,15 @@
 (function() {
-  var elementRenderer = window.elementRenderer || {};
+  var elementHelper = window.elementHelper || {};
   var linkTextView = document.getElementById('link');
   var titleTextView = document.getElementById('title');
   var highlightTextView = document.getElementById('highlight');
+  var toEditText = document.getElementById('highlight');
   
-  elementRenderer.renderUrl = renderText.bind(elementRenderer, linkTextView);
-  elementRenderer.renderTitle = renderText.bind(elementRenderer, titleTextView);
-  elementRenderer.renderHighlight = renderHighlight;
+  elementHelper.renderUrl = renderText.bind(elementHelper, linkTextView);
+  elementHelper.renderTitle = renderText.bind(elementHelper, titleTextView);
+  elementHelper.renderHighlight = renderHighlight;
 
-  window.elementRenderer = elementRenderer;
+  window.elementHelper = elementHelper;
 
   function renderHighlight(highlight) {
     if (highlight) {
