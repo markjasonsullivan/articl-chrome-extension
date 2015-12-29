@@ -1,6 +1,6 @@
 (function() {
 	var urlHelper = window.urlHelper || {};
-	var shouldUseDevelopmentUrls = true;
+	var shouldUseDevelopmentUrls = false;
 
 	urlHelper.getBaseUrl = getBaseUrl;
 	urlHelper.getUserUrl = getUserUrl;
@@ -16,7 +16,7 @@
 	function setBaseUrl(isDevelopment) {
 		if (isDevelopment) {
 			return "http://ngrok.tambykojak.com/";
-		} 
+		}
 
 		return "http://articl.io/";
 	}
@@ -27,5 +27,5 @@
 
 	function getCreateShareUrl() {
 		return getBaseUrl() + "shares";
-	}	
+	}
 })();
