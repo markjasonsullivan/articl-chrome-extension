@@ -20,7 +20,7 @@
     var onTabsReturned = callbackWithFirstElement(onTabReturned);
     var onSelectionsReturned = callbackWithFirstElement(elementHelper.renderHighlight);
     getCurrentTab(onTabsReturned);
-    chrome.tabs.executeScript(injectionScript, onSelectionsReturned);     
+    chrome.tabs.executeScript(injectionScript, onSelectionsReturned);
   }
 
   function getCurrentTab(queryCallback) {
@@ -35,7 +35,7 @@
   function onTabReturned(tab) {
     elementHelper.renderTitle(tab.title);
     elementHelper.renderUrl(tab.url);
-  }     
+  }
 
   function openNewTabWithArticlsNewUserPage() {
     var newArticlUserId = utils.generateGuid();
@@ -50,11 +50,14 @@
       localStorageHelper.getArticlUserId(),
       "tambykojak@gmail.com",
       "this is the email body.",
+      "google.com",
+      "zomg",
       function() {
         console.log("zomg it worked.");
+        window.close();
       }
       )
-  }  
+  }
 
   function callbackWithFirstElement(callback) {
     return function onArrayReturned(arr) {
