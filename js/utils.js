@@ -1,17 +1,23 @@
 (function() {
   var utils = window.utils || {};
   
-  utils.generateGuid = generateGuid;
+  utils.generateUserId = generateUserId;
 
   window.utils = utils;
 
-  function generateGuid() {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
+  function generateUserId() {
+    var userId = "";
 
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    for(int i = 0; i < 5; i ++) {
+      userId += s4();
+    }
+    
+    return userId;
+  }
+  
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
   }
 })();

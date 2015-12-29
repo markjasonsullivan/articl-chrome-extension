@@ -1,19 +1,24 @@
 (function() {
 	var urlHelper = window.urlHelper || {};
-	var shouldUseDevelopmentUrls = false;
+	var shouldUseDevelopmentUrls = true;
 
 	urlHelper.getBaseUrl = getBaseUrl;
 	urlHelper.getUserUrl = getUserUrl;
 	urlHelper.getCreateShareUrl = getCreateShareUrl;
+	var baseUrl = setBaseUrl(shouldUseDevelopmentUrls);
 
 	window.urlHelper = urlHelper;
 
 	function getBaseUrl() {
-		if (shouldUseDevelopmentUrls) {
+		return baseUrl;
+	}
+
+	function setBaseUrl(isDevelopment) {
+		if (isDevelopment) {
 			return "http://ngrok.tambykojak.com/";
-		} else {
-			return "http://articl.io/";
-		}
+		} 
+
+		return "http://articl.io/";
 	}
 
 	function getUserUrl(userId) {
