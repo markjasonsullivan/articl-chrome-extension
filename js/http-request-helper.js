@@ -7,7 +7,7 @@
 
   window.httpRequestHelper = httpRequestHelper;
 
-  function createNewShareRequest(url, articlUserId, emailTo, emailBody, link, highlight, callback) {
+  function createNewShareRequest(url, articlUserId, emailTo, link, highlight, title, callback) {
       var xmlHttp = new XMLHttpRequest();
 
       xmlHttp.onreadystatechange = function() {
@@ -21,9 +21,9 @@
       xmlHttp.setRequestHeader("X-Articl-User-Id", articlUserId);
       xmlHttp.send(JSON.stringify({
         to: emailTo,
-        body: emailBody,
         link: link,
-        highlight: highlight
+        highlight: highlight,
+        title: title
       }));
   }
 

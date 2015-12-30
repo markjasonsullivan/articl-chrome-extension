@@ -1,6 +1,6 @@
 (function() {
 	var urlHelper = window.urlHelper || {};
-	var shouldUseDevelopmentUrls = false;
+	var shouldUseDevelopmentUrls = true;
 
 	urlHelper.getBaseUrl = getBaseUrl;
 	urlHelper.getUserUrl = getUserUrl;
@@ -18,7 +18,7 @@
 			return "http://ngrok.tambykojak.com/";
 		}
 
-		return "http://articl.io/";
+		return "http://www.articl.io/";
 	}
 
 	function getUserUrl(userId) {

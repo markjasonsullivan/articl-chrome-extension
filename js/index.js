@@ -38,7 +38,7 @@
   }
 
   function openNewTabWithArticlsNewUserPage() {
-    var newArticlUserId = utils.generateGuid();
+    var newArticlUserId = utils.generateUserId();
     localStorageHelper.setArticlUserId(newArticlUserId);
     var newTabUrl = urlHelper.getUserUrl(newArticlUserId);
     chrome.tabs.create({ url: newTabUrl });
@@ -48,10 +48,10 @@
     httpRequestHelper.createNewShareRequest(
       urlHelper.getCreateShareUrl(),
       localStorageHelper.getArticlUserId(),
-      "tambykojak@gmail.com",
-      "this is the email body.",
-      "google.com",
-      "zomg",
+      elementHelper.getToText(),
+      elementHelper.getLinkText(),
+      elementHelper.getHighlightText(),
+      elementHelper.getTitleText(),
       function() {
         console.log("zomg it worked.");
         window.close();

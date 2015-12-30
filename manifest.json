@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Articl",
-  "description": "See what your smart friends are reading.",
-  "version": "1.0",
+  "description": "Share Seamlessly.",
+  "version": "0.0.0.2",
 
   "browser_action": {
     "default_icon": "images/icon.png",
