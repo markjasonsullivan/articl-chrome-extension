@@ -1,6 +1,6 @@
 (function() {
 	var urlHelper = window.urlHelper || {};
-	var shouldUseDevelopmentUrls = true;
+	var shouldUseDevelopmentUrls = false;
 
 	urlHelper.getBaseUrl = getBaseUrl;
 	urlHelper.getUserUrl = getUserUrl;
