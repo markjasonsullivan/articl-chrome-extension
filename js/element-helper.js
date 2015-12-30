@@ -39,7 +39,7 @@
   }
 
   function getToText() {
-    return toEditText.textContent;
+    return toEditText.value;
   }
 
   function getLinkText() {

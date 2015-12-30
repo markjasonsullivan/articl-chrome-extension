@@ -3,7 +3,7 @@
 
   "name": "Articl",
   "description": "Share Seamlessly.",
-  "version": "0.0.0.3",
+  "version": "0.0.0.4",
 
   "browser_action": {
     "default_icon": "images/icon.png",
