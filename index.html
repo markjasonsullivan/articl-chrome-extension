@@ -2,16 +2,18 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link href='https://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'> -->
   </head>
-  <body id="container">
-    <h2 id="title"></h2>
-    <img id="highlight-image" class="grow" src="images/highlighter_enabled.png" width="25"/>
-    <p id="highlight"></p>
-    <input id="recipient" class="styleTextBox" placeholder="Recommend" type="email" name="recipient">
-    <img id="send" class="grow" src="images/icon_send.png" height="30"/>
-    <p id="link"></p>
-    <!-- <img class="grow" src="images/icon_twitter.png" height="30"/> -->
+  <body>
+    <div class="flex-container">
+      <h2 id="title"></h2>
+      <!-- <img id="highlight-image" src="images/highlighter_enabled.png" width="25"/> -->
+      <p id="highlight"></p>
+      <input id="recipient" class="styleTextBox" placeholder="Email" type="email" name="recipient">
+      <img id="send" class="grow" src="images/icon_send.png" height="30"/>
+      <!-- <input id="comment" class="styleTextBox" placeholder="Comment" type="comment" name="comment"> -->
+      <p id="link"></p>
+    </div>
   </body>
   <script src="js/url-helper.js"></script>
   <script src="js/vendor/jquery-1.11.3.min.js"></script>

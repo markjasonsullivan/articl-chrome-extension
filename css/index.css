@@ -1,76 +1,79 @@
-#container {
+/*Layout*/
+.flex-container {
   width: 300px;
-  background-color: #F7EAC8;
   font-family: 'MyFont', serif;
-  /*display: flex;
-  flex-wrap: wrap;*/
+  color: #333;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: wrap;
 }
 
+/*Elements*/
 #title {
   font-size: 20px;
-  max-width: 400px;
-  /*flex 1 1 auto;
-  flex-basis: 100%;*/
+  flex: 0 1 100%;
 }
 
-#highlight-image {
+/*#highlight-image {
   float: left;
-  /*flex-basis: 20%;*/
-}
+  order: 2;
+  height: 20px;
+  flex: 0 1 10%;
+}*/
 
 #highlight {
   font-style: italic;
-  /*flex-basis: 80%;*/
+  flex: 0 1 100%;
 }
 
 #recipient {
-  min-width: 201px;
-  max-width: 201px;
-  min-height: 28px;
-  max-height: 28px;
-  font-family: 'Lustria', serif;
+  width: 201px;
+  height: 28px;
+  font-family: 'MyFont', serif;
   font-size: 12px;
-  float: left;
-  /*flex-basis: 60%;*/
+  flex: 0 1 60%;
 }
 
-#comment {
-  resize: none;
-  min-width: 200px;
-  max-width: 200px;
-  min-height: 18px;
-  max-height: 18px;
-  font-family: 'Lustria', serif;
+/*#comment {
+  height: 20px;
+  font-family: 'MyFont', serif;
   font-size: 10px;
-}
+  flex: 0 1 100%;
+}*/
 
 #send {
-  /*flex-basis: 40%;*/
+  flex: 0 1 25%;
+}
+#send:active {
+  transform: scale(.9);
 }
 
 #link {
   font-size: 8px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 300px;
-  /*flex-basis: 100%;*/
+  flex: 0 1 100%;
 }
 
+/*Font Style*/
+@font-face {
+  font-family: 'MyFont';
+  src: url('../fonts/Lantinghei-SC-Extralight-stub.ttf') format('truetype');
+}
+
+/*Text Box Style*/
 .styleTextBox {
   background-color: #FFF8E1;
   box-shadow: inset -1px 2px 3px 1px #ccc;
   border-style: none;
   text-indent: 5px;
 }
-
-@font-face {
-    font-family: 'MyFont';
-    src: url('../fonts/Lantinghei-SC-Extralight-stub.ttf') format('truetype');
-}
-
 input {
- outline:none;
+  outline:none;
 }
 
-.grow { transition: all .1s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
+/*Growing Icons*/
+.grow {
+  transition: all .05s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
+}
