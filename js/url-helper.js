@@ -11,6 +11,7 @@
 
 	function getBaseUrl() {
 		return baseUrl;
+		// This is a change.
 	}
 
 	function setBaseUrl(isDevelopment) {
