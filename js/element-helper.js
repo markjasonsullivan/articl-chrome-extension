@@ -19,7 +19,7 @@
     if (highlight) {
       highlight = "\"" + highlight + "\"";
     } else {
-      highlight = "No highlight, No biggie.";
+      highlight = "";
     }
 
     renderText(highlightTextView, highlight);
