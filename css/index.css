@@ -10,7 +10,7 @@
 
 /*Elements*/
 #title {
-  font-size: 20px;
+  font-size: 15px;
   flex: 0 1 100%;
 }
 
@@ -42,14 +42,19 @@
 }*/
 
 #send {
-  flex: 0 1 25%;
+  flex: 0 1 19.5%;
 }
 #send:active {
-  transform: scale(.9);
+  transform: translateX(30px) rotate(120deg) scale(.6);
 }
 
 #link {
   font-size: 8px;
+  flex: 0 1 100%;
+}
+
+#space {
+  font-size: 4px;
   flex: 0 1 100%;
 }
 
@@ -61,9 +66,10 @@
 
 /*Text Box Style*/
 .styleTextBox {
-  background-color: #FFF8E1;
-  box-shadow: inset -1px 2px 3px 1px #ccc;
+  background-color: #EEEEEE; /*#FFF8E1*/
+  /*box-shadow: inset -1px 2px 3px 1px #bbb;*/
   border-style: none;
+  border-bottom: thin solid #FFC33C;
   text-indent: 5px;
 }
 input {
