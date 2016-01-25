@@ -2,7 +2,7 @@
 .flex-container {
   width: 300px;
   font-family: 'MyFont', serif;
-  color: #333;
+  color: #333; /*font color*/
   display: -webkit-flex;
   display: flex;
   flex-flow: wrap;
@@ -13,7 +13,7 @@
   padding: 10px 10px 10px 10px;
   font-size: 15px;
   flex: 0 1 100%;
-  background-color: #FFC33C;
+  background-color: #FFC33C; /*yellow color*/
   box-shadow: 0 0 4px #FFC33C, 0 4px 8px rgba(0,0,0,.28);
 }
 * {
@@ -24,7 +24,7 @@
 
 /*Highlight*/
 #highlight {
-  padding: 5px 10px 0px 35px;
+  padding: 5px 10px 0px 45px;
   font-style: italic;
   flex: 0 1 100%;
 }
