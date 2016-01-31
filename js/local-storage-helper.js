@@ -1,6 +1,6 @@
-(function() {
+(function(shouldUseDevelopmentStuff) {
   var localStorageHelper = window.localStorageHelper || {};
-  
+
   localStorageHelper.getArticlUserId = getArticlUserId;
   localStorageHelper.setArticlUserId = setArticlUserId;
   localStorageHelper.setUserCache = setUserCache;
@@ -9,18 +9,34 @@
   window.localStorageHelper = localStorageHelper;
 
   function getArticlUserId() {
-    return localStorage.articlUserId;
+    if (shouldUseDevelopmentStuff) {
+      return localStorage.devArticlUserId;
+    } else {
+      return localStorage.articlUserId;
+    }
   }
 
   function setArticlUserId(articlUserId) {
-    localStorage.articlUserId = articlUserId;
+    if (shouldUseDevelopmentStuff) {
+      localStorage.devArticlUserId = articlUserId;
+    } else {
+      localStorage.articlUserId = articlUserId;
+    }
   }
 
   function setUserCache(userJsonData) {
-    localStorage.userCache = userJsonData;
+    if (shouldUseDevelopmentStuff) {
+      localStorage.devUserCache = userJsonData;
+    } else {
+      localStorage.userCache = userJsonData;
+    }
   }
 
   function getUserCache() {
-    return localStorage.userCache;
+    if (shouldUseDevelopmentStuff) {
+      return localStorage.devUserCache;
+    } else {
+      return localStorage.userCache;
+    }
   }
-})();
+})(window.environmentHelper.shouldUseDevelopmentStuff());

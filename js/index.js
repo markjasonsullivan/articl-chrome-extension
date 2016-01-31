@@ -45,6 +45,12 @@
   }
 
   function onSendClick() {
+    toText = elementHelper.getToText();
+
+    if (!toText) {
+      return;
+    }
+
     httpRequestHelper.createNewShareRequest(
       urlHelper.getCreateShareUrl(),
       localStorageHelper.getArticlUserId(),
@@ -53,7 +59,6 @@
       elementHelper.getHighlightText(),
       elementHelper.getTitleText(),
       function() {
-        console.log("zomg it worked.");
         window.close();
       }
       )
