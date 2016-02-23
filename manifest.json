@@ -2,11 +2,11 @@
   "manifest_version": 2,
 
   "name": "Articl",
-  "description": "Share Seamlessly.",
-  "version": "0.0.0.4",
+  "description": "A simple tool to share an article.",
+  "version": "0.0.0.5",
 
   "browser_action": {
-    "default_icon": "images/icon_highlighter_shadow-small.png",
+    "default_icon": "images/icon_chromeWebStore-128x128.png",
     "default_popup": "index.html",
     "default_title": "Articl"
   },
