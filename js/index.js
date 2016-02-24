@@ -8,6 +8,12 @@
     } else {
       openNewTabWithArticlsNewUserPage();
     }
+    // document.findElementById('recipient')
+    // document.getElementById('recipient').onkeypress=function(e){
+    //   if(e.keyCode==13){
+    //     document.getElementById('send').click();
+    //   }
+    // }
   }
 
   function addEventListenersToButtons() {
