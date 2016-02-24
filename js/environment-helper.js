@@ -1,6 +1,6 @@
 (function() {
   var environmentHelper = window.environmentHelper || {};
-	var useDevelopmentStuff = true;
+	var useDevelopmentStuff = false;
 
 	environmentHelper.getAmplitudeApiKey = getAmplitudeApiKey;
   environmentHelper.getBaseUrl = getBaseUrl;
