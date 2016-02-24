@@ -1,5 +1,10 @@
 (function(urlHelper, elementHelper, localStorageHelper, httpRequestHelper, utils) {
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+  document.addEventListener('keydown', function(event) {
+    if (event.which === 13) {
+        elementHelper.clickSendButton();
+    }
+  });
 
   function onDOMContentLoaded() {
     if (localStorageHelper.getArticlUserId()) {
@@ -8,12 +13,6 @@
     } else {
       openNewTabWithArticlsNewUserPage();
     }
-    // document.findElementById('recipient')
-    // document.getElementById('recipient').onkeypress=function(e){
-    //   if(e.keyCode==13){
-    //     document.getElementById('send').click();
-    //   }
-    // }
   }
 
   function addEventListenersToButtons() {

@@ -4,6 +4,7 @@
   var titleTextView = document.getElementById('title');
   var highlightTextView = document.getElementById('highlight');
   var toEditText = document.getElementById('recipient');
+  var sendButton = document.getElementById('send');
 
   elementHelper.renderUrl = renderText.bind(elementHelper, linkTextView);
   elementHelper.renderTitle = renderText.bind(elementHelper, titleTextView);
@@ -12,6 +13,7 @@
   elementHelper.getTitleText = getTitleText;
   elementHelper.getToText = getToText;
   elementHelper.getLinkText = getLinkText;
+  elementHelper.clickSendButton = clickSendButton;
 
   window.elementHelper = elementHelper;
 
@@ -44,5 +46,9 @@
 
   function getLinkText() {
     return linkTextView.textContent;
+  }
+
+  function clickSendButton() {
+    return sendButton.click();
   }
 })();
