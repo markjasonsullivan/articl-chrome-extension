@@ -1,10 +1,6 @@
 (function(urlHelper, elementHelper, localStorageHelper, httpRequestHelper, utils) {
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
-  chrome.commands.onCommand.addListener(function(command) {
-    console.log('Command:', command);
-  });
-  
   function onDOMContentLoaded() {
     if (localStorageHelper.getArticlUserId()) {
       addEventListenersToButtons();
