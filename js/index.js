@@ -4,7 +4,7 @@
   chrome.commands.onCommand.addListener(function(command) {
     console.log('Command:', command);
   });
-  
+
   function onDOMContentLoaded() {
     if (localStorageHelper.getArticlUserId()) {
       addEventListenersToButtons();
@@ -12,6 +12,12 @@
     } else {
       openNewTabWithArticlsNewUserPage();
     }
+    // document.findElementById('recipient')
+    // document.getElementById('recipient').onkeypress=function(e){
+    //   if(e.keyCode==13){
+    //     document.getElementById('send').click();
+    //   }
+    // }
   }
 
   function addEventListenersToButtons() {
