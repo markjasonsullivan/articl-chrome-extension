@@ -14,6 +14,7 @@
   elementHelper.getToText = getToText;
   elementHelper.getLinkText = getLinkText;
   elementHelper.clickSendButton = clickSendButton;
+  elementHelper.shakeSendButton = shakeSendButton;
 
   window.elementHelper = elementHelper;
 
@@ -50,5 +51,13 @@
 
   function clickSendButton() {
     return sendButton.click();
+  }
+
+  function shakeSendButton() {
+    sendButton.classList.add("shake");
+
+    sendButton.addEventListener("animationend", function() {
+      sendButton.classList.remove("shake");
+    })
   }
 })();

@@ -56,6 +56,11 @@
       return;
     }
 
+    if (!utils.isValidEmail(toText)) {
+      elementHelper.shakeSendButton();
+      return;
+    }
+
     httpRequestHelper.createNewShareRequest(
       urlHelper.getCreateShareUrl(),
       localStorageHelper.getArticlUserId(),
