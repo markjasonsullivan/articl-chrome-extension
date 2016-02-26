@@ -50,7 +50,13 @@
   }
 
   function clickSendButton() {
+    sendButton.classList.add("pivot");
+
+    sendButton.addEventListener("animationend", function() {
+      sendButton.classList.remove("pivot");
+    })
     return sendButton.click();
+
   }
 
   function shakeSendButton() {
@@ -60,4 +66,5 @@
       toEditText.classList.remove("shake");
     })
   }
+
 })();
