@@ -69,7 +69,14 @@
       elementHelper.getHighlightText(),
       elementHelper.getTitleText(),
       function() {
-        window.close();
+        chrome.browserAction.setIcon({path: "images/icon_send_4.png"});
+        setTimeout(
+          function() {
+            chrome.browserAction.setIcon({path: "images/icon_chromeWebStore-128x128.png"});
+
+          }, 2000);
+
+          window.close();          
       }
       )
   }
