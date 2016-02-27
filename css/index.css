@@ -7,8 +7,10 @@
 }
 
 #highlight {
-	padding: 5px 10px 0 45px;
+	margin: 5px 10px 0 20px;
+  padding: 0px 0px 0px 25px;
 	font-style: italic;
+  border-left: thick solid #d3d3d3;
 	flex: 0 1 100%;
 }
 
@@ -59,11 +61,17 @@
 	box-shadow: 0 0 4px #FFC33C,0 4px 8px rgba(0,0,0,.28);
 }
 
-.styleTextBox {
+.style-text-box {
 	background-color: #FAFAFA;
 	border-style: none;
 	border-bottom: thin solid #FFC33C;
 	text-indent: 5px;
+}
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .grow {
@@ -81,12 +89,6 @@
 
 .shake {
 	animation: shake .6s cubic-bezier(.36,.07,.19,.97) both;
-}
-
-.ellipsis {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 input {
