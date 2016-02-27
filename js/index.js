@@ -58,11 +58,8 @@
   function onSendClick() {
     toText = elementHelper.getToText();
 
-    if (!toText) {
-      return;
-    }
-
-    if (!utils.isValidEmail(toText)) {
+    if (!toText
+      || !utils.isValidEmail(toText)) {
       elementHelper.shakeSendButton();
       return;
     }

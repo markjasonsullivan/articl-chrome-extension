@@ -60,7 +60,6 @@
       sendButton.classList.remove("pivot");
     })
     return sendButton.click();
-
   }
 
   function shakeSendButton() {
