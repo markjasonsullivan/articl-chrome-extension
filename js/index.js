@@ -45,6 +45,7 @@
     }
 
     elementHelper.renderUrl(tab.url);
+    elementHelper.getConfirmationDiv().style.height = document.body.offsetHeight + "px";
   }
 
   function openNewTabWithArticlsNewUserPage() {
@@ -74,14 +75,12 @@
       elementHelper.getHighlightText(),
       elementHelper.getTitleText(),
       function() {
-        
+        elementHelper.getConfirmationDiv().style.visibility = "visible";
         setTimeout(
           function() {
             window.close();
-          },
-        2000);
-      }
-      )
+        }, 2000);
+      });
   }
 
   function callbackWithFirstElement(callback) {

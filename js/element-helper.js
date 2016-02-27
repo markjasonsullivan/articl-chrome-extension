@@ -5,6 +5,8 @@
   var highlightTextView = document.getElementById('highlight');
   var toEditText = document.getElementById('recipient');
   var sendButton = document.getElementById('send');
+  var confirmationDiv = document.getElementById('confirmation');
+  var inputDiv = document.getElementById('input');
 
   elementHelper.renderUrl = renderText.bind(elementHelper, linkTextView);
   elementHelper.renderTitle = renderText.bind(elementHelper, titleTextView);
@@ -15,6 +17,8 @@
   elementHelper.getLinkText = getLinkText;
   elementHelper.clickSendButton = clickSendButton;
   elementHelper.shakeSendButton = shakeSendButton;
+  elementHelper.getConfirmationDiv = getConfirmationDiv;
+  elementHelper.getInputDiv = getInputDiv;
 
   window.elementHelper = elementHelper;
 
@@ -67,4 +71,11 @@
     })
   }
 
+  function getConfirmationDiv() {
+    return confirmationDiv;
+  }
+
+  function getInputDiv() {
+    return inputDiv;
+  }
 })(window.localStorageHelper);
