@@ -38,7 +38,12 @@
   }
 
   function onTabReturned(tab) {
-    elementHelper.renderTitle(tab.title);
+    if (tab.url.startsWith("http://www.articl.io/users/" + localStorageHelper.getArticlUserId())) {
+      elementHelper.renderTitle("My first share with Articl!");
+    } else {
+      elementHelper.renderTitle(tab.title);
+    }
+
     elementHelper.renderUrl(tab.url);
   }
 
@@ -69,14 +74,12 @@
       elementHelper.getHighlightText(),
       elementHelper.getTitleText(),
       function() {
-        chrome.browserAction.setIcon({path: "images/icon_send_4.png"});
+        
         setTimeout(
           function() {
-            chrome.browserAction.setIcon({path: "images/icon_chromeWebStore-128x128.png"});
-
-          }, 2000);
-
-          window.close();          
+            window.close();
+          },
+        2000);
       }
       )
   }

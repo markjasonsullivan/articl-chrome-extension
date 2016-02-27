@@ -1,4 +1,4 @@
-(function() {
+(function(localStorageHelper) {
   var elementHelper = window.elementHelper || {};
   var linkTextView = document.getElementById('link');
   var titleTextView = document.getElementById('title');
@@ -67,4 +67,4 @@
     })
   }
 
-})();
+})(window.localStorageHelper);
