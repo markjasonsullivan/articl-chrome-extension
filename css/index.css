@@ -6,6 +6,23 @@
   display: -webkit-flex;
   display: flex;
   flex-flow: wrap;
+  position: relative;
+}
+
+#input,
+#confirmation {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#confirmation {
+  background-color: #FFC33C;
+  z-index: 10;
+  display: table;
+  visibility: hidden;
 }
 
 /*Heading*/
@@ -16,6 +33,22 @@
   background-color: #FFC33C; /*yellow color*/
   box-shadow: 0 0 4px #FFC33C, 0 4px 8px rgba(0,0,0,.28);
 }
+
+.container { display: table; }
+.content { display: table-row; height: 100%; }
+.content-body { display: table-cell; }
+
+.header {
+  padding: 10px 10px 10px 10px;
+  font-size: 15px;
+  flex: 0 1 100%;
+  top: 20px;
+  position: absolute;
+  bottom: 20px;
+  background-color: #FFC33C; /*yellow color*/
+  box-shadow: 0 0 4px #FFC33C, 0 4px 8px rgba(0,0,0,.28);
+}
+
 * {
   margin-top: 0px;
   margin-left: 0px;

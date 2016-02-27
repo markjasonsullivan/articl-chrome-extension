@@ -5,11 +5,20 @@
   </head>
   <body style="background-color: #FAFAFA;">
     <div class="flex-container">
-      <h2 id="title"></h2>
-      <p id="highlight"></p>
-      <input id="recipient" class="styleTextBox" placeholder="Email" type="email" name="recipient" spellcheck="false">
-      <img id="send" class="grow" src="images/icon_send_4.png" height="30"/>
-      <p id="link" class="ellipsis"></p>
+      <div id="input" class="flex-container">
+        <h2 id="title"></h2>
+        <p id="highlight"></p>
+        <input id="recipient" class="styleTextBox" placeholder="Email" type="email" name="recipient" spellcheck="false">
+        <img id="send" class="grow" src="images/icon_send_4.png" height="30"/>
+        <p id="link" class="ellipsis"></p>
+      </div>
+      <div id="confirmation" class="container">
+        <section class="content">
+            <div class="content-body">
+                <p>This is the content.</p>
+            </div>
+        </section>
+      </div>
     </div>
   </body>
   <script src="js/environment-helper.js"></script>

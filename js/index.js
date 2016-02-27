@@ -40,6 +40,7 @@
   function onTabReturned(tab) {
     elementHelper.renderTitle(tab.title);
     elementHelper.renderUrl(tab.url);
+    elementHelper.getConfirmationDiv().style.height = document.body.offsetHeight + "px";
   }
 
   function openNewTabWithArticlsNewUserPage() {
@@ -69,14 +70,11 @@
       elementHelper.getHighlightText(),
       elementHelper.getTitleText(),
       function() {
-        chrome.browserAction.setIcon({path: "images/icon_send_4.png"});
+        elementHelper.getConfirmationDiv().style.visibility = "visible";
         setTimeout(
           function() {
-            chrome.browserAction.setIcon({path: "images/icon_chromeWebStore-128x128.png"});
-
-          }, 2000);
-
-          window.close();          
+            window.close();
+        }, 2000);
       }
       )
   }
