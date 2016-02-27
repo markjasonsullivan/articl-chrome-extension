@@ -156,6 +156,15 @@ input {
 	}
 }
 
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+	animation: fadein .6s;
+}
+
 @font-face {
 	font-family: 'MyFont';
 	src: url(../fonts/Lantinghei-SC-Extralight-stub.ttf) format("truetype");

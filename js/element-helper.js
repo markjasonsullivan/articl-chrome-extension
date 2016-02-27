@@ -95,11 +95,24 @@
   function fadeConfirmationDivIn() {
     mainDiv.style.display = "none";
     confirmationDiv.style.display = "block";
+
+    confirmationDiv.classList.add("fade-in");
+
+    confirmationDiv.addEventListener("animationend", function() {
+      confirmationDiv.classList.remove("fade-in");
+    })
   }
 
   function fadeErrorDivIn() {
     mainDiv.style.display = "none";
     errorDiv.style.display = "block";
+
+    errorDiv.classList.add("fade-in");
+
+    errorDiv.addEventListener("animationend", function() {
+      errorDiv.classList.remove("fade-in");
+    })
+
     setTimeout(function() {
       sendButton.classList.remove("pivot");
       mainDiv.style.display = "flex";
