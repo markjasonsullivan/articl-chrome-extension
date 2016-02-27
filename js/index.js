@@ -45,7 +45,12 @@
     }
 
     elementHelper.renderUrl(tab.url);
-    elementHelper.getConfirmationDiv().style.height = document.body.offsetHeight + "px";
+    setTimeout(
+      function() {
+        var height = elementHelper.getMainDiv().scrollHeight;
+        elementHelper.getConfirmationDiv().style.height = height + "px";
+        elementHelper.getErrorDiv().style.height = height + "px";
+      }, 500);
   }
 
   function openNewTabWithArticlsNewUserPage() {
@@ -72,11 +77,14 @@
       elementHelper.getHighlightText(),
       elementHelper.getTitleText(),
       function() {
-        elementHelper.getConfirmationDiv().style.visibility = "visible";
+        elementHelper.fadeConfirmationDivIn();
         setTimeout(
           function() {
             window.close();
-        }, 2000);
+        }, 1000);
+      },
+      function() {
+        elementHelper.fadeErrorDivIn();
       });
   }
 

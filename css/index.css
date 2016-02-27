@@ -1,3 +1,23 @@
+#container {
+  position: relative;
+}
+
+#main,
+#confirmation,
+#error {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+#confirmation,
+#error {
+	background-color: #FFC33C;
+	display: none;
+  z-index: 10;
+}
+
 #title {
 	padding: 10px;
 	font-size: 15px;
@@ -34,7 +54,7 @@
 }
 
 #link {
-	padding: 10px 10px 0;
+	padding: 8px 8px 8px 8px;
 	font-size: 8px;
 	flex: 0 1 100%;
 }
@@ -45,9 +65,19 @@
 	color: #333;
 	display: -webkit-flex;
 	display: flex;
-	position: relative;
+	vertical-align: middle;
 	flex-flow: wrap;
 	position: relative;
+}
+
+.vertically-align {
+	position: absolute;
+	width: 100%;
+	text-align:center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .header {
@@ -99,6 +129,7 @@ input {
 	margin-top: 0;
 	margin-left: 0;
 	margin-right: 0;
+	margin-bottom: 0;
 }
 
 @keyframes pivot {

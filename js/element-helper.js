@@ -6,7 +6,9 @@
   var toEditText = document.getElementById('recipient');
   var sendButton = document.getElementById('send');
   var confirmationDiv = document.getElementById('confirmation');
-  var inputDiv = document.getElementById('input');
+  var mainDiv = document.getElementById('main');
+  var errorDiv = document.getElementById('error');
+  var containerDiv = document.getElementById('container');
 
   elementHelper.renderUrl = renderText.bind(elementHelper, linkTextView);
   elementHelper.renderTitle = renderText.bind(elementHelper, titleTextView);
@@ -18,7 +20,11 @@
   elementHelper.clickSendButton = clickSendButton;
   elementHelper.shakeSendButton = shakeSendButton;
   elementHelper.getConfirmationDiv = getConfirmationDiv;
-  elementHelper.getInputDiv = getInputDiv;
+  elementHelper.getMainDiv = getMainDiv;
+  elementHelper.getErrorDiv = getErrorDiv;
+  elementHelper.getContainerDiv = getContainerDiv;
+  elementHelper.fadeConfirmationDivIn = fadeConfirmationDivIn;
+  elementHelper.fadeErrorDivIn = fadeErrorDivIn;
 
   window.elementHelper = elementHelper;
 
@@ -74,7 +80,30 @@
     return confirmationDiv;
   }
 
-  function getInputDiv() {
-    return inputDiv;
+  function getMainDiv() {
+    return mainDiv;
+  }
+
+  function getErrorDiv() {
+    return errorDiv;
+  }
+
+  function getContainerDiv() {
+    return containerDiv;
+  }
+
+  function fadeConfirmationDivIn() {
+    mainDiv.style.display = "none";
+    confirmationDiv.style.display = "block";
+  }
+
+  function fadeErrorDivIn() {
+    mainDiv.style.display = "none";
+    errorDiv.style.display = "block";
+    setTimeout(function() {
+      sendButton.classList.remove("pivot");
+      mainDiv.style.display = "flex";
+      errorDiv.style.display = "none";
+    }, 1500);
   }
 })(window.localStorageHelper);

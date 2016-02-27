@@ -7,12 +7,15 @@
 
   window.httpRequestHelper = httpRequestHelper;
 
-  function createNewShareRequest(url, articlUserId, emailTo, link, highlight, title, callback) {
+  function createNewShareRequest(url, articlUserId, emailTo, link, highlight, title, successCallback, errorCallback) {
       var xmlHttp = new XMLHttpRequest();
 
       xmlHttp.onreadystatechange = function() {
-          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-              callback(xmlHttp.responseText);
+          if (xmlHttp.readyState == 4
+            && xmlHttp.status == 200) {
+            successCallback(xmlHttp.responseText);
+          } else {
+            errorCallback(xmlHttp.responseText);
           }
       };
 
