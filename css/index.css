@@ -27,10 +27,10 @@
 }
 
 #highlight {
-	margin: 5px 10px 10px 20px;
-  padding: 0px 0px 0px 25px;
+	margin: 13px 20px 10px 45px;
+  padding: 0px 0px 0px 0px;
 	font-style: italic;
-  border-left: thick solid #d3d3d3;
+  /*border-left: thin solid #333;*/
 	flex: 0 1 100%;
 }
 
@@ -54,7 +54,7 @@
 }
 
 #link {
-	padding: 8px 8px 8px 8px;
+	padding: 10px 10px 10px 10px;
 	font-size: 8px;
 	flex: 0 1 100%;
 }
@@ -71,6 +71,9 @@
 }
 
 .vertically-align {
+  font-family: 'MyFont',serif;
+	color: #333;
+  font-size: 14px;
 	position: absolute;
 	width: 100%;
 	text-align:center;
