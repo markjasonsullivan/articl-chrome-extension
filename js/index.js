@@ -39,7 +39,7 @@
 
   function onTabReturned(tab) {
     if (tab.url.startsWith("http://www.articl.io/users/" + localStorageHelper.getArticlUserId())) {
-      elementHelper.renderTitle("My first share with Articl!");
+      elementHelper.renderTitle("My First Share with Articl!");
     } else {
       elementHelper.renderTitle(tab.title);
     }
